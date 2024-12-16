@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<Shell xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+       xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+       xmlns:views="clr-namespace:ShopListOP.Views"
+       x:Class="ShopListOP.AppShell"
+       Shell.FlyoutBehavior="Disabled">
+
+    <TabBar>
+        <ShellContent Title="Dodaj kategorie i produkty">
+            <views:MainPage />
+        </ShellContent>
+
+        <ShellContent Title="Lista zakupow">
+            <views:ShowLists />
+        </ShellContent>
+
+        <ShellContent Title="Lista do sklepu">
+            <views:ShowProducts />
+        </ShellContent>
+    </TabBar>
+</Shell>

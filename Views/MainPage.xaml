@@ -1,0 +1,22 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="ShopListOP.Views.MainPage">
+
+    <ScrollView Padding="30">
+        <VerticalStackLayout Padding="30,0" Spacing="25">
+
+            <Label Text="Dodaj Nowa Kategorie"  />
+            <Entry x:Name="NewCategoryEntry" Placeholder="Nazwa nowej kategorii" />
+            <Button Text="Dodaj kategorię" Clicked="OnAddCategoryClicked" BackgroundColor="DeepPink" FontSize="20" FontAttributes="Bold" />
+
+            <Label Text="Dodaj Nowy Produkt"  />
+            <Entry x:Name="NewProductEntry" Placeholder="Nazwa nowego produktu" TextColor="DeepPink" />
+            <Entry x:Name="NewAmountEntry" Placeholder="Ilość nowego produktu" TextColor="DeepPink" />
+            <Entry x:Name="NewUnitEntry" Placeholder="Jednostka nowego produktu" TextColor="DeepPink" />
+            <Picker x:Name="CategoryPicker" Title="Wybierz kategorię" ItemsSource="{Binding Categories}" ItemDisplayBinding="{Binding Name}" />
+            <Button Text="Dodaj produkt" Clicked="OnAddProductClicked" BackgroundColor="DeepPink" FontSize="20" FontAttributes="Bold" />
+        </VerticalStackLayout>
+    </ScrollView>
+
+</ContentPage>
