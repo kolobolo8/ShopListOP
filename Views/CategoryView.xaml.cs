@@ -1,4 +1,4 @@
-namespace ShopListOP.Views;
+﻿namespace ShopListOP.Views;
 
 public partial class CategoryView : ContentView
 {
@@ -14,6 +14,16 @@ public partial class CategoryView : ContentView
             category.IsExpanded = !category.IsExpanded;
 
             button.Text = category.IsExpanded ? "Zwin" : "Rozwin";
+            Data.SaveData();
+        }
+    }
+    private void OnDeleteCategoryClicked(object sender, EventArgs e)
+    {
+        if (BindingContext is Category category)
+        {
+            var categories = Data.Categories;
+            categories.Remove(category);
+
             Data.SaveData();
         }
     }

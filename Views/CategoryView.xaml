@@ -12,6 +12,12 @@
                      CommandParameter="{Binding .}"
                     Clicked="OnToggleCategoryClicked" BackgroundColor="DeepPink"
                     Margin="20,0"/>
+            <Button Text="Usuń" 
+                BackgroundColor="#262626" 
+                TextColor="DeepPink"
+                VerticalOptions="Center"
+                HorizontalOptions="End" 
+                Clicked="OnDeleteCategoryClicked"/>
         </HorizontalStackLayout>
 
         <CollectionView ItemsSource="{Binding Products}" IsVisible="{Binding IsExpanded}">
