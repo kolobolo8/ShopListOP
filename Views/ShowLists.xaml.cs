@@ -19,67 +19,6 @@ public partial class ShowLists : ContentPage
         BindingContext = this;
     }
 
-    private void OnIncreaseQuantityClicked(object sender, EventArgs e)
-    {
-        if (sender is Button button && button.CommandParameter is Product product)
-        {
-            product.Amount++;
-            Data.SaveData();
-        }
-    }
-
-    private void OnDecreaseQuantityClicked(object sender, EventArgs e)
-    {
-        if (sender is Button button && button.CommandParameter is Product product)
-        {
-            if (product.Amount > 0)
-            {
-                product.Amount--;
-                Data.SaveData();
-            }
-        }
-    }
-
-    private void OnDeleteProductClicked(object sender, EventArgs e)
-    {
-        if (sender is Button button && button.CommandParameter is Product product)
-        {
-            var category = Categories.FirstOrDefault(c => c.Products.Contains(product));
-            if (category != null)
-            {
-                category.Products.Remove(product);
-                Data.SaveData();
-            }
-        }
-    }
-
-    private void OnToggleCategoryClicked(object sender, EventArgs e)
-    {
-        if (sender is Button button && button.CommandParameter is Category category)
-        {
-            category.IsExpanded = !category.IsExpanded;
-
-            button.Text = category.IsExpanded ? "Zwin" : "Rozwin";
-            Data.SaveData();
-        }
-    }
-
-
-
-    private void OnToggleBoughtClicked(object sender, CheckedChangedEventArgs e)
-    {
-        if (sender is CheckBox checkBox && checkBox.BindingContext is Product product)
-        {
-            product.IsBought = e.Value;
-            if (checkBox.Parent is HorizontalStackLayout hSL)
-            {
-                var nameClr = hSL.Children.OfType<Label>().FirstOrDefault();
-                nameClr.TextColor = product.IsBought ? Colors.Gray : Colors.DeepPink;
-            }
-            Data.SaveData();
-        }
-    }
-
     private  void OnExportClicked(object sender, EventArgs e)
     {
             try

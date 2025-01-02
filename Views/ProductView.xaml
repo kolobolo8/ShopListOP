@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<ContentView xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             xmlns:views="clr-namespace:ShopListOP.Views"
+             x:Class="ShopListOP.Views.ProductView">
+    <VerticalStackLayout Padding="10" Spacing="5">
+        <HorizontalStackLayout>
+            <Label Text="{Binding Name}" 
+                   TextColor="{Binding IsBought}"
+                   FontSize="18" 
+                   VerticalOptions="Center" />
+            <Label Text="{Binding Amount}" VerticalOptions="Center" Margin="20,0,0,0" />
+            <Label Text="{Binding Unit}" VerticalOptions="Center" Margin="0,0,10,0" />
+            <CheckBox IsChecked="{Binding IsBought}" CheckedChanged="OnToggleBoughtClicked" HorizontalOptions="End" />
+            <Button Text="-" Clicked="OnDecreaseQuantityClicked" BackgroundColor="#262626" TextColor="DeepPink" FontSize="30" HeightRequest="20" WidthRequest="20" Margin="20,0,10,0" />
+            <Button Text="+" Clicked="OnIncreaseQuantityClicked" BackgroundColor="#262626" TextColor="DeepPink" FontSize="30" HeightRequest="20" WidthRequest="20" />
+            <Button Text="Usuń" Clicked="OnDeleteProductClicked" BackgroundColor="#262626" TextColor="DeepPink" Margin="36,0,0,0" />
+        </HorizontalStackLayout>
+    </VerticalStackLayout>
+</ContentView>

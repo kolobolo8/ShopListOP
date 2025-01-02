@@ -1,47 +1,14 @@
 <?xml version="1.0" encoding="utf-8" ?>
 <ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             xmlns:views="clr-namespace:ShopListOP.Views"
              x:Class="ShopListOP.Views.ShowLists">
     <ScrollView>
         <VerticalStackLayout>
-            <CollectionView
-                ItemsSource="{Binding Categories}"
-                Margin="0,0,0,20">
+            <CollectionView ItemsSource="{Binding Categories}">
                 <CollectionView.ItemTemplate>
                     <DataTemplate>
-                        <VerticalStackLayout Padding="10" Spacing="10">
-                            <HorizontalStackLayout>
-                                <Label Text="{Binding Name}" FontSize="30" TextColor="DeepPink" />
-                                <Button x:Name="ToggleCategoryButton"
-                                        Text="{Binding IsExpanded}"
-                                        CommandParameter="{Binding .}"
-                                        Clicked="OnToggleCategoryClicked" BackgroundColor="DeepPink"
-                                        Margin="20,0"/>
-
-                            </HorizontalStackLayout>
-
-                            <CollectionView
-                                ItemsSource="{Binding Products}" IsVisible="{Binding IsExpanded}">
-                                <CollectionView.ItemTemplate>
-                                    <DataTemplate>
-                                        <VerticalStackLayout Padding="10" Spacing="5">
-                                            <HorizontalStackLayout>
-                                                <Label Text="{Binding Name}" TextColor="White" VerticalOptions="Center" x:Name="ProductNameColor" FontSize="18" />
-                                                <Label Text="{Binding Amount}" VerticalOptions="Center" Margin="20,0,0,0" />
-                                                <Label Text="{Binding Unit}" VerticalOptions="Center" Margin="0,0,10,0" />
-                                                <CheckBox IsChecked="{Binding IsBought}" CheckedChanged="OnToggleBoughtClicked" HorizontalOptions="End" />
-
-                                                <Button Text="-" CommandParameter="{Binding .}" Clicked="OnDecreaseQuantityClicked" BackgroundColor="#262626" TextColor="DeepPink" FontSize="30" HeightRequest="20" WidthRequest="20" Margin="20,0,10,0" />
-                                                <Button Text="+" CommandParameter="{Binding .}" Clicked="OnIncreaseQuantityClicked" BackgroundColor="#262626" TextColor="DeepPink" FontSize="30" HeightRequest="20" WidthRequest="20"/>
-
-                                                <Button Text="Usuń" CommandParameter="{Binding .}" Clicked="OnDeleteProductClicked" BackgroundColor="#262626" TextColor="DeepPink" Margin="36,0,0,0" />
-                                            </HorizontalStackLayout>
-                                        </VerticalStackLayout>
-                                    </DataTemplate>
-                                </CollectionView.ItemTemplate>
-                            </CollectionView>
-                            <Label Text="----------------------------------------------------------------------------------------------------------------------------------" FontSize="30"/>
-                        </VerticalStackLayout>
+                        <views:CategoryView BindingContext="{Binding}" />
                     </DataTemplate>
                 </CollectionView.ItemTemplate>
             </CollectionView>
@@ -49,4 +16,5 @@
             <Button Text="Import" Clicked="OnImportClicked" BackgroundColor="DeepPink" WidthRequest="200" Margin="10" HorizontalOptions="End"/>
         </VerticalStackLayout>
     </ScrollView>
+
 </ContentPage>

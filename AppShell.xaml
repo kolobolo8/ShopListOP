@@ -7,7 +7,7 @@
 
     <TabBar>
         <ShellContent Title="Dodaj kategorie i produkty">
-            <views:MainPage />
+            <views:AddProducts />
         </ShellContent>
 
         <ShellContent Title="Lista zakupow">

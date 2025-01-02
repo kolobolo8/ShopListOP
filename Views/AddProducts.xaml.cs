@@ -1,16 +1,16 @@
-﻿using System.Collections.ObjectModel;
+using System.Collections.ObjectModel;
 using System.Linq;
 using System.Xml.Serialization;
 
-    namespace ShopListOP.Views;
+namespace ShopListOP.Views;
 
 
-public partial class MainPage : ContentPage
+public partial class AddProducts : ContentPage
 {
     public ObservableCollection<Category> Categories { get; set; }
     private readonly string _filePath = Path.Combine(FileSystem.AppDataDirectory, "shopping_list.xml");
 
-    public MainPage()
+    public AddProducts()
     {
         InitializeComponent();
         Categories = Data.Categories;
@@ -64,7 +64,7 @@ public partial class MainPage : ContentPage
     {
         var newCategoryName = NewCategoryEntry.Text;
 
-        if(Data.Categories.Any(Categories => Categories.Name == newCategoryName))
+        if (Data.Categories.Any(Categories => Categories.Name == newCategoryName))
         {
             DisplayAlert("Blad", "Kategoria o tej nazwie jest juz na twojej liscie zakupow", "OK");
             return;
